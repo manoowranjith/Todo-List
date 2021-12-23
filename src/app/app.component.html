@@ -1,0 +1,14 @@
+<div id="todoList">
+  <div id="todoItem">
+    <h1>Add ToDo List</h1>
+    <hr>
+    <input id="inputField" type="text" [(ngModel)]="list">
+    <div *ngIf="list==''; else buttonEnable"><button [disabled]="true">Add List</button></div>
+    <ng-template #buttonEnable><button id="submitButton" class="button-enabled" [disabled]="false" (click)="addItems()">Add List</button></ng-template>
+  </div>
+  <div *ngFor="let list of todoList;let i = index">
+    <div class="task" (click)="removeItems(list)">
+      <h3 id={{(i+1).toString()}}>{{list}}</h3>
+    </div>
+  </div>
+</div>
